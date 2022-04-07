@@ -1,23 +1,19 @@
-import {
-  Inpt,
-  UpperForm,
-  UnderForm,
-} from "../../styled-components/styled-components";
+import { Inpt, UpperFormText, UnderFormText } from "./form-styled";
 
 export const FormComponent: React.FC<{
-  prop: string;
+  form: string;
   message: string | undefined;
   register: Function;
-}> = ({ prop, register, message }) => {
+}> = ({ form, register, message }) => {
   return (
     <>
-      <UpperForm> {prop === "login" ? "Логин" : "Пароль"}</UpperForm>
+      <UpperFormText> {form === "login" ? "Логин" : "Пароль"}</UpperFormText>
       <Inpt
         filled={message}
-        type={prop === "login" ? "text" : "password"}
-        {...register(prop, { required: "Обязательное поле" })}
+        type={form === "login" ? "text" : "password"}
+        {...register(form, { required: "Обязательное поле" })}
       />
-      <UnderForm>{message}</UnderForm>
+      <UnderFormText>{message}</UnderFormText>
     </>
   );
 };

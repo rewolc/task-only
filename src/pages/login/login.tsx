@@ -1,14 +1,18 @@
 import { FormComponent } from "../../components/form/form";
 import { WarningComponent } from "../../components/warning/warning";
 
+import { user } from "../../texts/texts";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+
 import {
   LoginWraper,
-  Button,
-  Checkbox,
-  Label,
-  LabelText,
-} from "../../styled-components/styled-components";
+  LoginButton,
+  LoginCheckbox,
+  LoginLabel,
+  LoginLabelText,
+} from "./login-styled";
 
 type FormData = {
   login: string;
@@ -16,39 +20,65 @@ type FormData = {
 };
 
 const LoginPage = () => {
+  const navigate = useNavigate();
+
+  const [login, enteredLogin] = useState("");
+  const [password, enteredPassword] = useState("");
+  const [isBtnActive, changeBtnActive] = useState(true);
+
+  const sleep = (time: number) =>
+    new Promise((resolve) => setTimeout(resolve, time));
+
+  const forms = ["login", "password"];
+
   const {
     register,
-    watch,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
-  const forms = ["login", "password"];
-  const user = {
-    login: "steve.jobs@example.com",
-    password: "password",
-  };
-  const onSubmit = handleSubmit((data) => console.log(data));
+  } = useForm<FormData>({
+    mode: "onBlur",
+  });
+
+  const onSubmit = handleSubmit(async (data) => {
+    changeBtnActive(!isBtnActive);
+    await sleep(Math.random() * 3000);
+    enteredLogin(data.login);
+    enteredPassword(data.password);
+    ((isBtnActive) => changeBtnActive(!isBtnActive))();
+  });
 
   return (
     <LoginWraper as="form" onSubmit={onSubmit}>
-      <WarningComponent />
-      {forms.map((i, indx) => (
+      {login ? (
+        login === user.login ? (
+          password === user.password ? (
+            navigate("/entered")
+          ) : (
+            <WarningComponent text={"неправильный пароль"} />
+          )
+        ) : (
+          <WarningComponent text={"неправильный логин"} />
+        )
+      ) : (
+        <></>
+      )}
+      {forms.map((form, indx) => (
         <FormComponent
           register={register}
-          prop={i}
+          form={form}
           key={indx}
           message={
-            i === "login" ? errors.login?.message : errors.password?.message
+            form === "login" ? errors.login?.message : errors.password?.message
           }
         />
       ))}
 
-      <Label>
-        <Checkbox />
-        <LabelText>Запомнить пароль</LabelText>
-      </Label>
+      <LoginLabel>
+        <LoginCheckbox />
+        <LoginLabelText>Запомнить пароль</LoginLabelText>
+      </LoginLabel>
 
-      <Button value="Войти" />
+      <LoginButton value="Войти" active={isBtnActive} disabled={!isBtnActive} />
     </LoginWraper>
   );
 };
