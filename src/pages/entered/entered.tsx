@@ -7,7 +7,7 @@ const EnteredPage: React.FC = () => {
   return (
     <EnteredWraper>
       <EnteredText>
-        Здравствуйте, <span> steve.jobs@example.com </span>{" "}
+        Здравствуйте, <span> steve.jobs@example.com </span>
       </EnteredText>
       <EnteredButton value="Выйти" onClick={() => navigate("/")} />
     </EnteredWraper>
