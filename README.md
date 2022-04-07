@@ -4,7 +4,7 @@ This is an log-in SPA, created with `React` and `Styled-components`. The form-co
 All task was maded with `TypeScript`
 
 There are a required and no match login\password alert.
-To go to the entered-page( pagination maded via `react-router`) enter login : steeve.jobs@example.com and password : password.
+To go to the entered-page( pagination maded via `react-router`) enter login : 'steeve.jobs@example.com' and password : 'password'
 
 ## Installation and Setup Instructions
 
@@ -24,9 +24,7 @@ To Start Server:
 
 To Visit App:
 
-### `localhost:3000/ideas`
+### `localhost:3000`
 
 
-## Project Screen Shots
-![Alt text](https://prnt.sc/DqhcAVhFFl_b "Login Page")
-![Alt text](https://prnt.sc/MtxJH-vNx8tc "Required Fields & Mistake alert")
+
