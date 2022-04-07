@@ -54,10 +54,10 @@ const LoginPage = () => {
           password === user.password ? (
             navigate("/entered")
           ) : (
-            <WarningComponent text={"неправильный пароль"} />
+            <WarningComponent text={"Неверный пароль"} />
           )
         ) : (
-          <WarningComponent text={"неправильный логин"} />
+          <WarningComponent text={`Пользователя ${login} не существует`} />
         )
       ) : (
         <></>
