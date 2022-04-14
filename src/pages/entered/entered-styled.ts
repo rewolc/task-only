@@ -8,9 +8,28 @@ export const EnteredWraper = styled(AppWraper)`
 `;
 
 export const EnteredText = styled.p`
-  font-size: 40px;
+margin:auto;
   span {
     font-weight: 700;
+  }
+  @media (min-width: 1280px) {
+    font-size: 40px;
+  }
+  @media (max-width: 1280px) {
+    font-size: 35px;
+  }
+
+  @media (max-width: 900px) {
+    font-size: 30px;
+  }
+  @media (max-width: 600px) {
+    font-size: 25px;
+  }
+  @media (max-width: 500px) {
+    font-size: 20px;
+  }
+  @media (max-width: 400px) {
+    font-size: 15px;
   }
 `;
 

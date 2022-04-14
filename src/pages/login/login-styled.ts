@@ -6,8 +6,24 @@ export const LoginWraper = styled(AppWraper)`
   margin-top: 184px;
   justify-content: center;
   align-items: flex-start;
-  width: 640px;
+ 
   position: relative;
+  @media (min-width: 1280px) {
+    width: 700px
+  }
+  @media (max-width: 1280px) {
+    width: 640px
+  }
+
+  @media (max-width: 900px) {
+    width: 450px
+  }
+  @media (max-width: 600px) {
+    width: 300px
+  }
+  @media (max-width: 400px) {
+    width: 200px
+  }
 `;
 
 interface ButtonProps {
