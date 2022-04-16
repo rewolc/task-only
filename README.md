@@ -5,7 +5,7 @@ All task was maded with `TypeScript`
 
 There are a required and no match login\password alert.
 
-I'de deployed it on 'https://login-page-flame.vercel.app/' , check it out
+I've deployed it on 'https://login-page-flame.vercel.app/' , check it out
 To go to the entered-page( pagination maded via `react-router`) enter login : 'steve.jobs@example.com' and password : 'password'
 
 ## Installation and Setup Instructions
