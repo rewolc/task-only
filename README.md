@@ -4,7 +4,9 @@ This is an log-in SPA, created with `React` and `Styled-components`. The form-co
 All task was maded with `TypeScript`
 
 There are a required and no match login\password alert.
-To go to the entered-page( pagination maded via `react-router`) enter login : 'steeve.jobs@example.com' and password : 'password'
+
+I'de deployed it on 'https://login-page-flame.vercel.app/' , check it out
+To go to the entered-page( pagination maded via `react-router`) enter login : 'steve.jobs@example.com' and password : 'password'
 
 ## Installation and Setup Instructions
 
